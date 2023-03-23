@@ -32,7 +32,7 @@ import { SupplierDetailsComponent } from './supplier-details/supplier-details.co
 import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { AddCommentsPageComponent } from './add-comments-page/add-comments-page.component';
-import { NgbModule } from 'ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
