@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+            Order Details
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="card bg-dark col-6 mx-auto">
+        <div class="card-body">          
+            <span>Oder ID: {{orders.orderID}}</span><br>
+            <span>Oder Date: {{orders.orderDate |  date:'dd/MM/yyyy - HH:mm'}}</span><br>
+            <h6>Order Price: € {{orders.orderPrice}}</h6>
+        </div>
+    </div>
+    <br>
+    <div class="card bg-dark col-6 mx-auto">
+        <div class=" card-body row" *ngFor="let k of orders.orderItem let i = index">
+            <div class="col-md-3 g-3">
+                <img class="d-block w-100" src="{{k.orderGame.gamePic}}" alt="game pic">
+            </div>
+            <div class="col-6 g-1">
+                <br>
+                <p>Name: {{k.orderGame.gameName}}</p>             
+                Activation Key:
+                <h6>{{k.orderKey}}</h6>   
+            </div>
+        </div>  
+    </div>     
+</div>
+
+

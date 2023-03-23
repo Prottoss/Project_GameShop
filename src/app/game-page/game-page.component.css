@@ -1,0 +1,25 @@
+.container{
+    margin-top: 100px;
+}
+
+.newarrival{
+    width: 50px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #d3d3d3;
+}
+.full {
+  color: goldenrod;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: goldenrod;
+}

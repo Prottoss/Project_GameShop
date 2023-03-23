@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+            Order Summary
+        </h1>
+    </div>
+</div>
+<div class="card bg-dark text-white col-5 mx-auto">
+    <div class="card-header">
+        <div class="row border-bottom">
+            <div class="col"><h3>Name</h3></div>
+            <div class="col"><h3>Surname</h3></div>
+            <div class="col"><h3>Email</h3></div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">{{user.userFirstname}}</div>
+                <div class="col">{{user.userSurname}}</div>
+                <div class="col">{{user.userEmail}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card bg-dark text-white col-5 mx-auto">
+    <div class="card-header">
+        <div class="row border-bottom">
+            <div class="col"><h3>Product</h3></div>
+            <div class="col"><h3>Price</h3></div>
+        </div>
+        <div class="card-body">
+            <div class="row" *ngFor="let item of games; let i = index">
+                <div class="col">{{item.gameName}}</div>
+                <div class="col">{{item.gamePrice}}</div>
+            </div>
+        </div>
+        <div class="container m-3">
+          <h4>Total: €{{finalTotal}}</h4>
+      </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container">
+        <!--<button class="btn btn-primary" (click)="onBuy()" routerLink="/placedOrder">Buy</button>-->
+    </div>
+</div>
+<br>
+<div class="container mx-auto col-4">
+    <div #paypalRef></div>
+</div>

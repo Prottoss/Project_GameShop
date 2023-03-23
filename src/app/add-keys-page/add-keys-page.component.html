@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+            Add keys to game
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <app-game (game)="getGame($event)" class="col"></app-game>
+        <app-add-keys [game]="game" class="col"></app-add-keys>
+    </div>
+</div>

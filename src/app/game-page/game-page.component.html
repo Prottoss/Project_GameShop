@@ -1,0 +1,92 @@
+<div *ngIf="loaded==true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 g-5">
+                <img class="d-block w-100" src="{{game.gamePic}}" alt="game pic">
+            </div>
+            <div class="col-md-6">
+                <p class="newarrival text-centre">NEW</p>
+                <h1>{{game.gameName}}</h1>
+                <h2>€ {{game.gamePrice}}</h2>
+                <h3>Genre: {{game.gameGenre}}</h3>
+                <h5>Platforms:</h5>
+                <ng-container *ngFor="let plat of platforms">
+                    <span>{{plat}}, </span>
+                </ng-container>
+                <br>
+                <ng-template #t let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                      <span class="half" [style.width.%]="fill">&starf;</span>&star;
+                    </span>
+                  </ng-template>
+                  
+                  <ngb-rating [(rate)]="this.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                <br>
+                <h4>In Stock: <b>{{maxQty}}</b></h4>
+                <br>
+
+                <button class="btn btn-primary" (click)=addToCart(game) [disabled]="noStock">{{buttonText}}</button>
+                <!--<button class="btn btn-primary" routerLink="/checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>-->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h4>About</h4>
+            <p>{{game.gameDesc}}</p>
+            <br>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <ngb-carousel *ngIf="screens" class="col-6">
+                <ng-container *ngFor="let screen of screens">
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                          <img [src]="screen" alt="" width="650px">
+                        </div>
+                      </ng-template>
+                </ng-container>
+            </ngb-carousel>
+            <ngb-carousel *ngIf="artworks" class="col-6">
+                <ng-container *ngFor="let art of artworks">
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                          <img [src]="art" alt="" width="650px">
+                        </div>
+                      </ng-template>
+                </ng-container>
+            </ngb-carousel>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <h1>Comments</h1>
+                <div class="comment mt-4 text-justify float-left" *ngFor="let c of loopedComments let i = index">
+                    <span>Date: {{c.date |  date:'dd/MM/yyyy'}}</span>
+                    <br>
+                    <span>User: {{loggedInUser}}</span>
+                    <br>
+                    <span>Comment: {{c.text}}</span>
+                </div>
+            </div>
+            <br>
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <form #addForm="ngForm">
+                    <div class="form-group">
+                        <h4>Leave a comment</h4> 
+                        <label for="comment">Message</label> 
+                        <textarea type="text" name="comment" rows="10" [(ngModel)]="comments" class="form-control"></textarea>
+                    </div> 
+                    <br>             
+                    <button class="btn btn-primary" type="button" (click)="addComments()">Post comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading-screen *ngIf="loaded==false"></app-loading-screen>
+  

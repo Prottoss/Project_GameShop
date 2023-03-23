@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+            Customer Profile
+        </h1>
+    </div>
+</div>
+<div *ngIf="loaded==true">
+    <div class="container">
+        <div class="card bg-dark col-6 mx-auto">
+            <div class="card-body">
+                <img *ngIf="user.userProfilePicURL!=''" src="{{user.userProfilePicURL}}" width="100em">
+                <h3>Username: <b>{{user.username}}</b></h3>
+                <h3>Name: {{user.userFirstname}}</h3>
+                <h3>Surname: {{user.userSurname}}</h3>
+                <h3>DOB: {{user.userDOB}}</h3>
+                <h3>Gender: {{user.userGender}}</h3>
+                <h3>Email: {{user.userEmail}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+    </div>
+    <div class="container">
+        <div class="card bg-dark col-6 mx-auto">
+            <div class="card-body">
+                <h1>Profile Image</h1>
+                <input class="form-control" type="file" (change)="onFileSelected($event)">
+                <hr>
+                <button class="btn btn-primary" type="button" (click)="onUpload()">Upload</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<app-loading-screen *ngIf="loaded==false"></app-loading-screen>

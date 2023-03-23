@@ -1,0 +1,10 @@
+<div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+    <form #addForm="ngForm">
+        <div class="form-group">
+            <h4>Leave a comment</h4> 
+            <label for="comment">Message</label> 
+            <textarea type="text" name="comment" rows="10" [(ngModel)]="comment" class="form-control"></textarea>
+        </div>              
+        <button class="btn btn-primary" type="button" (click)="addComments()">Post comment</button>
+    </form>
+</div>

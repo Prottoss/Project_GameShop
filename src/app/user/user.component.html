@@ -1,0 +1,17 @@
+<div class="container col mx-auto">
+    <div class="card bg-dark">
+        <div class="card-header">
+            <h3>User List</h3>           
+        </div>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action"
+                *ngFor="let u of users let i = index" 
+                (click)="selected(u)"
+                [class.active]="u==selectedUser">
+                {{u.username}}
+            </li>
+         </ul>
+    </div>
+</div>

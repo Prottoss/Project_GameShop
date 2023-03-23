@@ -1,0 +1,45 @@
+<ng-container *ngIf="games.length != 0">
+    <br>
+    <div class="container bg-dark rounded col-6">
+        <table class="table text-white">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of games; let i = index">
+                    <td><img src="{{item.gamePic}}" alt="" width="90px"></td>
+                    <td>{{item.gameName}}</td>
+                    <td>{{item.gamePrice}}</td>
+                    <td>
+                        <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <div class="container">
+                <h4>Total: €{{finalTotal}}</h4>
+            </div>
+            <button class="btn btn-danger m-3" (click)="emptyCart()">Empty Cart</button>
+            <button class="btn btn-primary m-3" routerLink="/games">Add More</button>
+            <button class="btn btn-success m-3" routerLink="/checkout">Checkout</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="games.length == 0">
+    <div class="container col-6">
+        <div class="card bg-dark">
+        </div>
+        <div class="center">
+            <h4>Cart is Empty</h4>
+            <h6>Add Games to the Cart</h6>
+            <button class="btn btn-primary" routerLink="/games">Add Games</button>
+        </div>
+    </div>
+</ng-container>

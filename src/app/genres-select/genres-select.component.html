@@ -1,0 +1,16 @@
+<div class="nav bg-dark border-top py-3 justify-content-center">
+    <div class="form-group">
+        <input type="text" [(ngModel)]="nameText" class="form-control" placeholder="Search by name" (input)="onNameSearch()">
+    </div>
+    <div class="dropdown form-group px-5">
+        <select class="dropdown dropdown-menu-dark form-control" [(ngModel)]="chosenGenre" (change)="onGenreChanged($event)">
+            <option value="">All Genres</option>
+            <option *ngFor="let genre of genresService.getGenres()" [value]="genre.genreName">{{genre.genreName}}</option>
+          </select>
+    </div>
+    <div class='range-slider'>
+        <p style="text-align: center;">€{{rangeMin}} - €{{rangeMax}}</p>
+        <input type="range" min="0" max="200" step="1" [(ngModel)]="rangeMin" (ngModelChange)="onPriceRangeChanged($event,true)">
+        <input type="range" min="0" max="200" step="1" [(ngModel)]="rangeMax" (ngModelChange)="onPriceRangeChanged($event,false)">
+    </div>
+</div>

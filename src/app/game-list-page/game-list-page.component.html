@@ -1,0 +1,20 @@
+<app-genres-select (chosenGenreEvent)="this.chosenGenre=$event" (rangeChangeEvent)="this.priceRangeMin=$event[0];this.priceRangeMax=$event[1]" (nameTextEvent)="this.nameText=$event"></app-genres-select>
+<div *ngIf="loaded==true" class="container py-5 justify-content-center">
+    <div class="row row-cols-sm-4 g-3">
+        <ng-container *ngFor="let g of games | genreFilter:this.chosenGenre | priceRange:this.priceRangeMin:this.priceRangeMax | searchFilter: this.nameText; let i = index">
+            <div class="col-sm">
+                <div class="card shadow bg-dark">
+                    <img class="card-img-top" src={{g.gamePic}} alt="game img">
+                    <div class="card-body">
+                        <h5 class="card-title">{{g.gameName}}</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="card-text">€ {{g.gamePrice}}</p>
+                        </div>
+                        <a routerLink="/games/{{g.gameID}}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<app-loading-screen *ngIf="loaded==false"></app-loading-screen>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+          View Orders
+       </h1>
+    </div> 
+</div>  
+<div class="col-3 mx-auto">
+    <div class="card bg-dark">
+        <div class="card-header">
+            <h3>Order List</h3>  
+        </div>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action" *ngFor="let o of user.userOrders.reverse() let i = index">
+                <span>Order ID: {{o.orderID}}</span><br>
+                <span>Order Date: {{o.orderDate |  date:'dd/MM/yyyy'}}</span><br>               
+                <h6>Order Total: €{{o.orderPrice}}</h6>
+                <a routerLink="/userOrders/{{o.orderID}}" class="stretched-link"></a>
+            </li>
+        </ul>           
+    </div>
+</div>            
+
+
+

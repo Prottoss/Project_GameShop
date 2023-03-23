@@ -1,0 +1,45 @@
+<nav *ngIf="auth.isLoggedIn()" class="py-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul *ngIf="!userService.checkLoggedInUserIs('ADMIN')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="games">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="userOrders">Orders</a>
+                </li>
+            </ul>
+
+            <ul *ngIf="userService.checkLoggedInUserIs('ADMIN')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="games">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="addGames">Manage Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="addKeys">Add Keys</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="publishers">Publishers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="orders">Orders</a>
+                </li>
+            </ul>
+
+            <ul class="nav">
+                <button *ngIf="!userService.checkLoggedInUserIs('ADMIN')" class="btn btn-dark" routerLink="cart">
+                    <i class="fas fa-cart-plus" style="font-size: 20px;"></i>
+                    <div class="badge bg-danger" style="font-size: 10px;">{{totalCartAmount}}</div>
+                </button>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mr-3" routerLink="logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
