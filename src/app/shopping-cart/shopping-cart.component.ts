@@ -1,5 +1,3 @@
-import { JSDocComment } from '@angular/compiler';
-import { LIFECYCLE_HOOKS_VALUES } from '@angular/compiler/src/lifecycle_reflector';
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../dto/Game';
 import { GameComponent } from '../game/game.component';

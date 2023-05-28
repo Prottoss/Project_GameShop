@@ -9,7 +9,7 @@ import { ShoppingCartService } from './shopping-cart.service';
 })
 export class AuthService {
 
-  static url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
+  url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
   cart: any [] = [];
 
   constructor(private http: HttpClient, private cartService: ShoppingCartService) { }
@@ -17,7 +17,7 @@ export class AuthService {
 
   login(username:string, password:string) 
   {
-    return this.http.post(AuthService.url +"/login", {"username":username, "password":password})
+    return this.http.post(this.url +"/login", {"username":username, "password":password})
     .pipe( tap( (res:any)=>
     {
       //console.group("AuthService Login response = ",res);
