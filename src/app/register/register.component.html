@@ -18,16 +18,20 @@
                 <label for="dob">Date of birth:</label>
                 <input type="date" class="form-control" id="dob" [(ngModel)]="dob">
                 <label for="gender">Gender:</label>
-                <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="male">Male</mat-radio-button>
-                    <mat-radio-button value="female">Female</mat-radio-button>
-                  </mat-radio-group>
+                <div>
+                    <input id="male" type="radio" class="custom-control-input" value="male" name="gender" [(ngModel)]="gender" required>
+                    <label class="custom-control-label" for="male">Male</label>
+                 </div>
+                 <div>
+                    <input id="female" type="radio" class="custom-control-input" value="female" name="gender" [(ngModel)]="gender" required>
+                    <label class="custom-control-label" for="female">Female</label>
+                 </div>
                 <!-- <label *ngIf="errorMsg!=''">{{errorMsg}}</label> -->
             </div>
         </div>
 
         <div class="card-footer">
-            <!-- <button class="btn btn-success" id="loginbtn" (click)="submit()">Register</button> -->
+            <button class="btn btn-success" id="loginbtn" (click)="submit()">Register</button>
         </div>
     </div>
 </div>

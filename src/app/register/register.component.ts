@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatRadioModule } from "@angular/material/radio";
 
 @Component({
   selector: 'app-register',
@@ -14,6 +13,9 @@ export class RegisterComponent implements OnInit {
   password: string = "";
   email: string = "";
   dob: any;
+  gender: string = "";
+  userType: string = "user";
+  accountCreated!: Date;
 
 
 
@@ -21,6 +23,11 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit(){
+    
+
   }
 
 }
